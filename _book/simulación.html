@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sección 4 Simulación | _main.knit</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sección 4 Simulación | _main.knit" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/_bookdown_files/images/1.png" />
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sección 4 Simulación | _main.knit" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="twitter:image" content="/_bookdown_files/images/1.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="paquetes.html"/>
+<link rel="next" href="carga-datos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introducción a R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre este libro</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-r"><i class="fa fa-check"></i>¿Por qué R?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#índice"><i class="fa fa-check"></i>Índice</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="estructura-flujo.html"><a href="estructura-flujo.html"><i class="fa fa-check"></i><b>1</b> Estructura y flujo de trabajo</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="estructura-flujo.html"><a href="estructura-flujo.html#flujo-de-trabajo-ipo"><i class="fa fa-check"></i><b>1.1</b> Flujo de trabajo IPO</a></li>
+<li class="chapter" data-level="1.2" data-path="estructura-flujo.html"><a href="estructura-flujo.html#estructura-de-un-documento-rmarkdown"><i class="fa fa-check"></i><b>1.2</b> Estructura de un documento Rmarkdown</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="notacion-funciones.html"><a href="notacion-funciones.html"><i class="fa fa-check"></i><b>2</b> Notación y Funciones básicas</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="notacion-funciones.html"><a href="notacion-funciones.html#notación-esencial"><i class="fa fa-check"></i><b>2.1</b> Notación esencial</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="notacion-funciones.html"><a href="notacion-funciones.html#asignación"><i class="fa fa-check"></i><b>2.1.1</b> &lt;- (Asignación)</a></li>
+<li class="chapter" data-level="2.1.2" data-path="notacion-funciones.html"><a href="notacion-funciones.html#comentario"><i class="fa fa-check"></i><b>2.1.2</b> # (Comentario)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="notacion-funciones.html"><a href="notacion-funciones.html#combinar"><i class="fa fa-check"></i><b>2.1.3</b> c (Combinar)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="notacion-funciones.html"><a href="notacion-funciones.html#separador"><i class="fa fa-check"></i><b>2.1.4</b> , (Separador de Argumentos)</a></li>
+<li class="chapter" data-level="2.1.5" data-path="notacion-funciones.html"><a href="notacion-funciones.html#texto"><i class="fa fa-check"></i><b>2.1.5</b> “” o ’’ (Definición de Cadenas de Texto)</a></li>
+<li class="chapter" data-level="2.1.6" data-path="notacion-funciones.html"><a href="notacion-funciones.html#equivalencia"><i class="fa fa-check"></i><b>2.1.6</b> == (Igualdad Lógica)</a></li>
+<li class="chapter" data-level="2.1.7" data-path="notacion-funciones.html"><a href="notacion-funciones.html#OR"><i class="fa fa-check"></i><b>2.1.7</b> | (OR Lógico)</a></li>
+<li class="chapter" data-level="2.1.8" data-path="notacion-funciones.html"><a href="notacion-funciones.html#comparación"><i class="fa fa-check"></i><b>2.1.8</b> &gt;, &lt;, &gt;=, &lt;= (Comparación)</a></li>
+<li class="chapter" data-level="2.1.9" data-path="notacion-funciones.html"><a href="notacion-funciones.html#acceso"><i class="fa fa-check"></i><b>2.1.9</b> $ (Acceso a Columnas de Data Frames o Listas)</a></li>
+<li class="chapter" data-level="2.1.10" data-path="notacion-funciones.html"><a href="notacion-funciones.html#indexación"><i class="fa fa-check"></i><b>2.1.10</b> [] (Indexación)</a></li>
+<li class="chapter" data-level="2.1.11" data-path="notacion-funciones.html"><a href="notacion-funciones.html#llamada"><i class="fa fa-check"></i><b>2.1.11</b> () (Llamada de Funciones o Agrupación)</a></li>
+<li class="chapter" data-level="2.1.12" data-path="notacion-funciones.html"><a href="notacion-funciones.html#pertenencia"><i class="fa fa-check"></i><b>2.1.12</b> %in% (Pertenencia)</a></li>
+<li class="chapter" data-level="2.1.13" data-path="notacion-funciones.html"><a href="notacion-funciones.html#negación"><i class="fa fa-check"></i><b>2.1.13</b> ! (Negación)</a></li>
+<li class="chapter" data-level="2.1.14" data-path="notacion-funciones.html"><a href="notacion-funciones.html#secuencia"><i class="fa fa-check"></i><b>2.1.14</b> : (Secuencia)</a></li>
+<li class="chapter" data-level="2.1.15" data-path="notacion-funciones.html"><a href="notacion-funciones.html#operadores-aritméticos-aritmeticos"><i class="fa fa-check"></i><b>2.1.15</b> *, /, +, - (Operadores Aritméticos) {#aritmeticos}</a></li>
+<li class="chapter" data-level="2.1.16" data-path="notacion-funciones.html"><a href="notacion-funciones.html#combine"><i class="fa fa-check"></i><b>2.1.16</b> Combine</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="paquetes.html"><a href="paquetes.html"><i class="fa fa-check"></i><b>3</b> Instalación y uso de paquetes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="paquetes.html"><a href="paquetes.html#instalación"><i class="fa fa-check"></i><b>3.1</b> Instalación:</a></li>
+<li class="chapter" data-level="3.2" data-path="paquetes.html"><a href="paquetes.html#carga"><i class="fa fa-check"></i><b>3.2</b> Carga:</a></li>
+<li class="chapter" data-level="3.3" data-path="paquetes.html"><a href="paquetes.html#uso"><i class="fa fa-check"></i><b>3.3</b> Uso:</a></li>
+<li class="chapter" data-level="3.4" data-path="paquetes.html"><a href="paquetes.html#actualización-y-gestión"><i class="fa fa-check"></i><b>3.4</b> Actualización y Gestión:</a></li>
+<li class="chapter" data-level="3.5" data-path="paquetes.html"><a href="paquetes.html#uso-de-pacman"><i class="fa fa-check"></i><b>3.5</b> Uso de Pacman</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="simulación.html"><a href="simulación.html"><i class="fa fa-check"></i><b>4</b> Simulación</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="simulación.html"><a href="simulación.html#generación-de-datos"><i class="fa fa-check"></i><b>4.1</b> Generación de Datos</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="simulación.html"><a href="simulación.html#datos-normales"><i class="fa fa-check"></i><b>4.1.1</b> Datos Normales:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="simulación.html"><a href="simulación.html#datos-uniformes"><i class="fa fa-check"></i><b>4.1.2</b> Datos Uniformes:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="simulación.html"><a href="simulación.html#datos-binomiales"><i class="fa fa-check"></i><b>4.1.3</b> Datos Binomiales:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="simulación.html"><a href="simulación.html#manipulación-de-características-de-los-datos"><i class="fa fa-check"></i><b>4.2</b> Manipulación de Características de los Datos</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="simulación.html"><a href="simulación.html#cambio-de-la-media-y-desviación-estándar"><i class="fa fa-check"></i><b>4.2.1</b> Cambio de la media y desviación estándar:</a></li>
+<li class="chapter" data-level="4.2.2" data-path="simulación.html"><a href="simulación.html#tamaño-de-la-muestra"><i class="fa fa-check"></i><b>4.2.2</b> Tamaño de la muestra:</a></li>
+<li class="chapter" data-level="4.2.3" data-path="simulación.html"><a href="simulación.html#rango-de-valores"><i class="fa fa-check"></i><b>4.2.3</b> Rango de valores:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="simulación.html"><a href="simulación.html#creación-de-una-base-de-datos-en-r"><i class="fa fa-check"></i><b>4.3</b> Creación de una base de datos en R</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="simulación.html"><a href="simulación.html#simulación-de-variables-correlacionadas"><i class="fa fa-check"></i><b>4.3.1</b> Simulación de Variables Correlacionadas</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="simulación.html"><a href="simulación.html#exportar-datos"><i class="fa fa-check"></i><b>4.4</b> Exportar datos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="carga-datos.html"><a href="carga-datos.html"><i class="fa fa-check"></i><b>5</b> Cargar datos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="carga-datos.html"><a href="carga-datos.html#formato-csv"><i class="fa fa-check"></i><b>5.1</b> Formato CSV</a></li>
+<li class="chapter" data-level="5.2" data-path="carga-datos.html"><a href="carga-datos.html#formato-excel"><i class="fa fa-check"></i><b>5.2</b> Formato Excel</a></li>
+<li class="chapter" data-level="5.3" data-path="carga-datos.html"><a href="carga-datos.html#formato-txt"><i class="fa fa-check"></i><b>5.3</b> Formato TXT</a></li>
+<li class="chapter" data-level="5.4" data-path="carga-datos.html"><a href="carga-datos.html#formato-rds"><i class="fa fa-check"></i><b>5.4</b> Formato RDS</a></li>
+<li class="chapter" data-level="5.5" data-path="carga-datos.html"><a href="carga-datos.html#formato-spss"><i class="fa fa-check"></i><b>5.5</b> Formato SPSS</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Joaquín Bahamondes,Ph.D. 2025</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simulación" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Sección 4</span> Simulación<a href="simulación.html#simulación" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Simular datos en R es una técnica útil para pruebas, experimentos o validaciones estadísticas sin necesidad de datos reales. Con funciones como <code>rnorm()</code>, <code>runif()</code>, <code>sample()</code>, y <code>rbinom()</code>, R permite generar datos que cumplen con ciertas distribuciones y características básicas, como la media, la desviación estándar, la cantidad de observaciones, entre otras.</p>
+<div id="generación-de-datos" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Generación de Datos<a href="simulación.html#generación-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="datos-normales" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Datos Normales:<a href="simulación.html#datos-normales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para generar datos con una distribución normal, se usa <code>rnorm(n, mean, sd)</code>, donde:</p>
+<ul>
+<li><code>n</code> es el número de observaciones,<br />
+</li>
+<li><code>mean</code> es la media,<br />
+</li>
+<li><code>sd</code> es la desviación estándar.</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="simulación.html#cb30-1" tabindex="-1"></a>datos_normales <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="fl">3.8</span>, <span class="at">sd =</span> <span class="fl">1.1</span>)</span>
+<span id="cb30-2"><a href="simulación.html#cb30-2" tabindex="-1"></a><span class="co"># Imponer límites mínimo y máximo</span></span>
+<span id="cb30-3"><a href="simulación.html#cb30-3" tabindex="-1"></a>minimo <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb30-4"><a href="simulación.html#cb30-4" tabindex="-1"></a>maximo <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb30-5"><a href="simulación.html#cb30-5" tabindex="-1"></a>datos_normales_lim <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(datos_normales <span class="sc">&lt;</span> minimo, minimo, </span>
+<span id="cb30-6"><a href="simulación.html#cb30-6" tabindex="-1"></a>                         <span class="fu">ifelse</span>(datos_normales <span class="sc">&gt;</span> maximo, maximo, datos_normales))</span>
+<span id="cb30-7"><a href="simulación.html#cb30-7" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="simulación.html#cb30-8" tabindex="-1"></a><span class="fu">hist</span>(datos_normales_lim, </span>
+<span id="cb30-9"><a href="simulación.html#cb30-9" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">7</span>, </span>
+<span id="cb30-10"><a href="simulación.html#cb30-10" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;lightyellow&quot;</span>, </span>
+<span id="cb30-11"><a href="simulación.html#cb30-11" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Normal&quot;</span>, </span>
+<span id="cb30-12"><a href="simulación.html#cb30-12" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Valores&quot;</span>,</span>
+<span id="cb30-13"><a href="simulación.html#cb30-13" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frecuencia&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+</div>
+<div id="datos-uniformes" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Datos Uniformes:<a href="simulación.html#datos-uniformes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para una distribución uniforme, que genera valores entre un rango específico con la misma probabilidad, se usa <code>runif(n, min, max)</code>:</p>
+<ul>
+<li><code>n</code> es el número de observaciones,<br />
+</li>
+<li><code>min</code> y <code>max</code> definen el rango.</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="simulación.html#cb31-1" tabindex="-1"></a>datos_uniformes <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">7</span>)</span>
+<span id="cb31-2"><a href="simulación.html#cb31-2" tabindex="-1"></a><span class="fu">hist</span>(datos_uniformes, </span>
+<span id="cb31-3"><a href="simulación.html#cb31-3" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">7</span>, </span>
+<span id="cb31-4"><a href="simulación.html#cb31-4" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;lightyellow&quot;</span>, </span>
+<span id="cb31-5"><a href="simulación.html#cb31-5" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Uniforme&quot;</span>, </span>
+<span id="cb31-6"><a href="simulación.html#cb31-6" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Valores&quot;</span>,</span>
+<span id="cb31-7"><a href="simulación.html#cb31-7" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frecuencia&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+</div>
+<div id="datos-binomiales" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Datos Binomiales:<a href="simulación.html#datos-binomiales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para datos binarios o con un número fijo de éxitos (p.ej., tiradas de moneda), se usa <code>rbinom(n, size, prob)</code>, donde:</p>
+<ul>
+<li><code>n</code> es el número de observaciones,<br />
+</li>
+<li><code>size</code> es el número de ensayos,<br />
+</li>
+<li><code>prob</code> es la probabilidad de éxito en cada ensayo.</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="simulación.html#cb32-1" tabindex="-1"></a>datos_binomiales <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
+<span id="cb32-2"><a href="simulación.html#cb32-2" tabindex="-1"></a><span class="fu">hist</span>(datos_binomiales, </span>
+<span id="cb32-3"><a href="simulación.html#cb32-3" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">12</span>,</span>
+<span id="cb32-4"><a href="simulación.html#cb32-4" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;lightyellow&quot;</span>, </span>
+<span id="cb32-5"><a href="simulación.html#cb32-5" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución binomial&quot;</span>, </span>
+<span id="cb32-6"><a href="simulación.html#cb32-6" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Valores&quot;</span>,</span>
+<span id="cb32-7"><a href="simulación.html#cb32-7" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frecuencia&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+</div>
+<div id="manipulación-de-características-de-los-datos" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Manipulación de Características de los Datos<a href="simulación.html#manipulación-de-características-de-los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="cambio-de-la-media-y-desviación-estándar" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Cambio de la media y desviación estándar:<a href="simulación.html#cambio-de-la-media-y-desviación-estándar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La media y la desviación estándar se pueden ajustar en funciones como <code>rnorm()</code> para controlar la distribución y dispersión de los datos.</p>
+</div>
+<div id="tamaño-de-la-muestra" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Tamaño de la muestra:<a href="simulación.html#tamaño-de-la-muestra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ajustando el parámetro <code>n</code>, se modifica la cantidad de datos generados, lo cual es útil para realizar pruebas de análisis en conjuntos grandes o pequeños.</p>
+</div>
+<div id="rango-de-valores" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Rango de valores:<a href="simulación.html#rango-de-valores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para obtener valores en rangos específicos (p.ej., entre 0 y 100), <code>runif()</code> permite definir estos límites con <code>min</code> y <code>max</code>.</p>
+<p>Estos métodos permiten generar datos con propiedades controladas, ayudando a diseñar experimentos o pruebas que se asemejan a escenarios reales y asegurando variabilidad y control en las simulaciones.</p>
+</div>
+</div>
+<div id="creación-de-una-base-de-datos-en-r" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Creación de una base de datos en R<a href="simulación.html#creación-de-una-base-de-datos-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A continuación, crearemos una base de dato desde cero en este mismo entorno, practicando la creación de distintos objetos, vectores, matrices, y terminando por guardar una base de datos exportable. Recuerda que las características de cualquiera de estas variables puede ser modificada a nuestro antojo, y poder ajustarlas a nuestros propósitos particulares.<br />
+Para no repetir sistemáticamente el mismo número en caso que queramos modificarlo, definiremos el número de casos. Para esto, simplemente guardamos en un objeto el n deseado.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="simulación.html#cb33-1" tabindex="-1"></a>n_sim <span class="ot">&lt;-</span> <span class="dv">200</span></span></code></pre></div>
+<p>Partiremos por crear un vector identificador para un total de 200 casos. Para esto, utilizamos la función <code>paste()</code>, de modo que podamos asignar un código alfanumérico a cada fila que registre un caso.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="simulación.html#cb34-1" tabindex="-1"></a><span class="co"># Vector de caracteres</span></span>
+<span id="cb34-2"><a href="simulación.html#cb34-2" tabindex="-1"></a>id_vec <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;id&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>)</span></code></pre></div>
+<p>Ahora, inventaremos que esta muestra de 200 personas tiene edades entre los 20 a 60 años de edad. Entonces, usamos la función <code>sample()</code> para crear un listado de 200 valores aleatorios entre 20 y 60, con posibilidad de reemplazo. Como se puede observar en el código, se utilizará la función <code>set.seed()</code> para fijar la semilla que produce la aleatorización, de modo tal que no variará cada vez que ejecutemos el código, lo que permitirá la reproducibilidad.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="simulación.html#cb35-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Para reproducibilidad</span></span>
+<span id="cb35-2"><a href="simulación.html#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="simulación.html#cb35-3" tabindex="-1"></a><span class="co"># Vector numérico</span></span>
+<span id="cb35-4"><a href="simulación.html#cb35-4" tabindex="-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">60</span>, <span class="dv">200</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Aceleremos algo el proceso, creando una matriz <code>matrix()</code> en lugar de un sólo vector. Para esto, creemos aleatoriamente 200 valores tanto para altura (en cms) como para peso (kgs).</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="simulación.html#cb36-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb36-2"><a href="simulación.html#cb36-2" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="simulación.html#cb36-3" tabindex="-1"></a><span class="co"># Matriz de altura (cm) y peso (kg)</span></span>
+<span id="cb36-4"><a href="simulación.html#cb36-4" tabindex="-1"></a>mx_altura_peso <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(</span>
+<span id="cb36-5"><a href="simulación.html#cb36-5" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">150</span><span class="sc">:</span><span class="dv">200</span>, <span class="dv">200</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),  <span class="co"># Altura en cm</span></span>
+<span id="cb36-6"><a href="simulación.html#cb36-6" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">50</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">200</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)   <span class="co"># Peso en kg</span></span>
+<span id="cb36-7"><a href="simulación.html#cb36-7" tabindex="-1"></a>), <span class="at">nrow =</span> <span class="dv">200</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Demos nombres a las columnas (i.e., variables) usando la función <code>colnames()</code>, sobre la cual se asigna el listado de nombres, tal como si estuviésemos creando un objeto a través de una asignación <code>&lt;-</code>. Usaremos la función <code>head()</code> para chequear que la matriz se haya dispuesto correctamente.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="simulación.html#cb37-1" tabindex="-1"></a><span class="co"># Asignar nombres a las columnas</span></span>
+<span id="cb37-2"><a href="simulación.html#cb37-2" tabindex="-1"></a><span class="fu">colnames</span>(mx_altura_peso) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Altura_cm&quot;</span>, <span class="st">&quot;Peso_kg&quot;</span>)</span>
+<span id="cb37-3"><a href="simulación.html#cb37-3" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="simulación.html#cb37-4" tabindex="-1"></a><span class="co"># Inspeccionar los primeros casos de la matriz</span></span>
+<span id="cb37-5"><a href="simulación.html#cb37-5" tabindex="-1"></a><span class="fu">head</span>(mx_altura_peso)</span></code></pre></div>
+<pre><code>##      Altura_cm Peso_kg
+## [1,]       180      65
+## [2,]       164      72
+## [3,]       200      82
+## [4,]       163      89
+## [5,]       152      89
+## [6,]       191      59</code></pre>
+<p>Creemos una variable sin usar aleatorización. Por ejemplo, asignemos deliberadamente las distribuciones de la variable educación.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="simulación.html#cb39-1" tabindex="-1"></a>n_med  <span class="ot">&lt;-</span> <span class="dv">90</span></span>
+<span id="cb39-2"><a href="simulación.html#cb39-2" tabindex="-1"></a>n_univ <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb39-3"><a href="simulación.html#cb39-3" tabindex="-1"></a>n_post <span class="ot">&lt;-</span> <span class="dv">40</span></span></code></pre></div>
+<p>Entonces, asignaremos los primeros 90 casos a educación media completa, los segundos 70 a graduados universitarios, y los últimos 40 serán asignados con título de postgrado. Esto lo logramos haciendo uso de la función <code>rep()</code>, para repetir un valor de forma continua por un número determinado de veces.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="simulación.html#cb40-1" tabindex="-1"></a><span class="co"># Factor de nivel educativo</span></span>
+<span id="cb40-2"><a href="simulación.html#cb40-2" tabindex="-1"></a>nivel_educativo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Media&quot;</span>, <span class="dv">90</span>), <span class="fu">rep</span>(<span class="st">&quot;Universitaria&quot;</span>, <span class="dv">70</span>), <span class="fu">rep</span>(<span class="st">&quot;Postgrado&quot;</span>, <span class="dv">40</span>)))</span></code></pre></div>
+<p>Como cada variable está por su lado, crearemos una base de datos (i.e., dataframe) para unirlas todas en un mismo conjunto, a través de la función <code>data.frame()</code>. Esto, claro, asumiendo que cada una de las respuestas a todas las variables no sólo tienen la misma cantidad total de sujetos, sino que también cada sujeto ocupa la misma posición en el listado de datos.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="simulación.html#cb41-1" tabindex="-1"></a><span class="co"># Crear el data frame</span></span>
+<span id="cb41-2"><a href="simulación.html#cb41-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb41-3"><a href="simulación.html#cb41-3" tabindex="-1"></a>         <span class="at">id =</span> id_vec,</span>
+<span id="cb41-4"><a href="simulación.html#cb41-4" tabindex="-1"></a>         <span class="at">edad =</span> edades,</span>
+<span id="cb41-5"><a href="simulación.html#cb41-5" tabindex="-1"></a>         <span class="at">altura_cm =</span> mx_altura_peso[, <span class="st">&quot;Altura_cm&quot;</span>],</span>
+<span id="cb41-6"><a href="simulación.html#cb41-6" tabindex="-1"></a>         <span class="at">peso_kg =</span> mx_altura_peso[, <span class="st">&quot;Peso_kg&quot;</span>],</span>
+<span id="cb41-7"><a href="simulación.html#cb41-7" tabindex="-1"></a>         <span class="at">educacion =</span> nivel_educativo</span>
+<span id="cb41-8"><a href="simulación.html#cb41-8" tabindex="-1"></a>)</span>
+<span id="cb41-9"><a href="simulación.html#cb41-9" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="simulación.html#cb41-10" tabindex="-1"></a><span class="co"># Imprimir el data frame</span></span>
+<span id="cb41-11"><a href="simulación.html#cb41-11" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code></pre></div>
+<pre><code>##     id edad altura_cm peso_kg educacion
+## 1 id 1   50       180      65     Media
+## 2 id 2   34       164      72     Media
+## 3 id 3   33       200      82     Media
+## 4 id 4   22       163      89     Media
+## 5 id 5   56       152      89     Media
+## 6 id 6   33       191      59     Media</code></pre>
+<div id="simulación-de-variables-correlacionadas" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Simulación de Variables Correlacionadas<a href="simulación.html#simulación-de-variables-correlacionadas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este ejemplo, generaremos ocho variables simuladas divididas en dos bloques. Las variables dentro de cada bloque tendrán correlaciones más altas entre sí, mientras que las correlaciones entre bloques serán más bajas. Esto debiese facilitar (si no asegurar) la emergencia de dos factores en un análisis factorial. Posteriormente, las incluiremos en la base de datos creada.</p>
+<div id="paso-1-configuración-inicial" class="section level4 hasAnchor" number="4.3.1.1">
+<h4><span class="header-section-number">4.3.1.1</span> Paso 1: Configuración Inicial<a href="simulación.html#paso-1-configuración-inicial" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Definimos las dimensiones y las matrices de correlación.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="simulación.html#cb43-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(MASS, psych, misty)</span>
+<span id="cb43-2"><a href="simulación.html#cb43-2" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="simulación.html#cb43-3" tabindex="-1"></a><span class="co"># Parámetros generales</span></span>
+<span id="cb43-4"><a href="simulación.html#cb43-4" tabindex="-1"></a>n <span class="ot">&lt;-</span> n_sim  <span class="co"># Número de casos</span></span>
+<span id="cb43-5"><a href="simulación.html#cb43-5" tabindex="-1"></a>num_bloque <span class="ot">&lt;-</span> <span class="dv">4</span>  <span class="co"># Número de variables por bloque</span></span>
+<span id="cb43-6"><a href="simulación.html#cb43-6" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="simulación.html#cb43-7" tabindex="-1"></a><span class="co"># Correlaciones dentro de los bloques</span></span>
+<span id="cb43-8"><a href="simulación.html#cb43-8" tabindex="-1"></a>cor_alta <span class="ot">&lt;-</span> <span class="fl">0.75</span></span>
+<span id="cb43-9"><a href="simulación.html#cb43-9" tabindex="-1"></a></span>
+<span id="cb43-10"><a href="simulación.html#cb43-10" tabindex="-1"></a><span class="co"># Correlación baja entre elementos de distintos bloques</span></span>
+<span id="cb43-11"><a href="simulación.html#cb43-11" tabindex="-1"></a>cor_baja <span class="ot">&lt;-</span> <span class="fl">0.25</span></span></code></pre></div>
+<p>Creamos la matriz de correlaciones, y la observamos para asegurarnos de que hemos creado los datos correctamente.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="simulación.html#cb44-1" tabindex="-1"></a><span class="co"># Crear matriz base de correlación</span></span>
+<span id="cb44-2"><a href="simulación.html#cb44-2" tabindex="-1"></a>cor_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(cor_baja, <span class="at">nrow =</span> <span class="dv">8</span>, <span class="at">ncol =</span> <span class="dv">8</span>)</span>
+<span id="cb44-3"><a href="simulación.html#cb44-3" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="simulación.html#cb44-4" tabindex="-1"></a><span class="co"># Ajustar las correlaciones dentro de cada bloque</span></span>
+<span id="cb44-5"><a href="simulación.html#cb44-5" tabindex="-1"></a>cor_matrix[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="ot">&lt;-</span> cor_alta</span>
+<span id="cb44-6"><a href="simulación.html#cb44-6" tabindex="-1"></a>cor_matrix[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>] <span class="ot">&lt;-</span> cor_alta</span>
+<span id="cb44-7"><a href="simulación.html#cb44-7" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="simulación.html#cb44-8" tabindex="-1"></a><span class="co"># Asegurar que la diagonal sea 1 (varianza de cada variable)</span></span>
+<span id="cb44-9"><a href="simulación.html#cb44-9" tabindex="-1"></a><span class="fu">diag</span>(cor_matrix) <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb44-10"><a href="simulación.html#cb44-10" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="simulación.html#cb44-11" tabindex="-1"></a><span class="co"># Imprimir la matriz de correlación</span></span>
+<span id="cb44-12"><a href="simulación.html#cb44-12" tabindex="-1"></a>cor_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,] 1.00 0.75 0.75 0.75 0.25 0.25 0.25 0.25
+## [2,] 0.75 1.00 0.75 0.75 0.25 0.25 0.25 0.25
+## [3,] 0.75 0.75 1.00 0.75 0.25 0.25 0.25 0.25
+## [4,] 0.75 0.75 0.75 1.00 0.25 0.25 0.25 0.25
+## [5,] 0.25 0.25 0.25 0.25 1.00 0.75 0.75 0.75
+## [6,] 0.25 0.25 0.25 0.25 0.75 1.00 0.75 0.75
+## [7,] 0.25 0.25 0.25 0.25 0.75 0.75 1.00 0.75
+## [8,] 0.25 0.25 0.25 0.25 0.75 0.75 0.75 1.00</code></pre>
+<p>Ahora definiremos arbitrareamente parámetros para simular datos que reproduzcan una matriz de correlaciones similar a la establecida previamente, como unas medias para las ocho variables, y un rango (aquí, 0 a 5).</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="simulación.html#cb46-1" tabindex="-1"></a><span class="co"># Medias y matriz de covarianza</span></span>
+<span id="cb46-2"><a href="simulación.html#cb46-2" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">2.5</span>, <span class="dv">8</span>)  <span class="co"># Medias para las 8 variables</span></span>
+<span id="cb46-3"><a href="simulación.html#cb46-3" tabindex="-1"></a>mini <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb46-4"><a href="simulación.html#cb46-4" tabindex="-1"></a>maxi <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb46-5"><a href="simulación.html#cb46-5" tabindex="-1"></a>cov_matrix <span class="ot">&lt;-</span> cor_matrix  <span class="co"># La matriz de covarianza es equivalente a la de correlación aquí</span></span></code></pre></div>
+<p>La función <code>mvrnorm()</code> nos permitirá crear una distribución normal multivariada, bajo ciertos parámetros que hemos definido.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="simulación.html#cb47-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb47-2"><a href="simulación.html#cb47-2" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="simulación.html#cb47-3" tabindex="-1"></a><span class="co"># Generar datos</span></span>
+<span id="cb47-4"><a href="simulación.html#cb47-4" tabindex="-1"></a>datos_sim02 <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="at">n =</span> n, <span class="at">mu =</span> medias, <span class="at">Sigma =</span> cov_matrix)</span>
+<span id="cb47-5"><a href="simulación.html#cb47-5" tabindex="-1"></a><span class="do">## aseguramos que ningún dato baje del mínimo</span></span>
+<span id="cb47-6"><a href="simulación.html#cb47-6" tabindex="-1"></a>datos_sim02 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(datos_sim02 <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, datos_sim02)</span>
+<span id="cb47-7"><a href="simulación.html#cb47-7" tabindex="-1"></a><span class="do">## aseguramos que ningún dato supere el máximo</span></span>
+<span id="cb47-8"><a href="simulación.html#cb47-8" tabindex="-1"></a>datos_sim02 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(datos_sim02 <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="dv">5</span>, datos_sim02)</span>
+<span id="cb47-9"><a href="simulación.html#cb47-9" tabindex="-1"></a><span class="do">## transformamos todos los valores creados a números enteros</span></span>
+<span id="cb47-10"><a href="simulación.html#cb47-10" tabindex="-1"></a>datos_sim02 <span class="ot">&lt;-</span> <span class="fu">round</span>(datos_sim02, <span class="dv">0</span>)</span>
+<span id="cb47-11"><a href="simulación.html#cb47-11" tabindex="-1"></a><span class="do">## Chequeamos valores creados</span></span>
+<span id="cb47-12"><a href="simulación.html#cb47-12" tabindex="-1"></a><span class="fu">table</span>(datos_sim02)</span></code></pre></div>
+<pre><code>## datos_sim02
+##   0   1   2   3   4   5 
+##  33 185 578 559 220  25</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="simulación.html#cb49-1" tabindex="-1"></a><span class="co"># Convertir a un data.frame</span></span>
+<span id="cb49-2"><a href="simulación.html#cb49-2" tabindex="-1"></a>datos_sim02 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(datos_sim02)</span>
+<span id="cb49-3"><a href="simulación.html#cb49-3" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="simulación.html#cb49-4" tabindex="-1"></a><span class="co"># Nombrar las variables</span></span>
+<span id="cb49-5"><a href="simulación.html#cb49-5" tabindex="-1"></a><span class="fu">names</span>(datos_sim02) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;Var&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>)</span>
+<span id="cb49-6"><a href="simulación.html#cb49-6" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="simulación.html#cb49-7" tabindex="-1"></a><span class="co"># Imprimir primeros casos para chequear que todo ande ok</span></span>
+<span id="cb49-8"><a href="simulación.html#cb49-8" tabindex="-1"></a><span class="fu">head</span>(datos_sim02)</span></code></pre></div>
+<pre><code>##   Var1 Var2 Var3 Var4 Var5 Var6 Var7 Var8
+## 1    4    5    4    4    2    2    1    1
+## 2    3    3    4    3    2    2    2    1
+## 3    2    1    1    1    2    1    2    1
+## 4    3    3    3    2    2    2    2    2
+## 5    2    2    2    2    3    3    2    2
+## 6    1    1    1    1    1    1    2    1</code></pre>
+<p>Prosigamos a estimar la matriz de correlación observada para estos datos, a través de la función <code>cor()</code>. Dado que es esperable que los resultados produzcan índices con múltiples decimales, haremos la matriz más simple visualmente redondeando los decimales a dos, a través del uso de <code>round()</code>.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="simulación.html#cb51-1" tabindex="-1"></a><span class="co"># Matriz de correlación de los datos generados</span></span>
+<span id="cb51-2"><a href="simulación.html#cb51-2" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cor</span>(datos_sim02),<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##      Var1 Var2 Var3 Var4 Var5 Var6 Var7 Var8
+## Var1 1.00 0.70 0.64 0.68 0.22 0.24 0.18 0.15
+## Var2 0.70 1.00 0.65 0.69 0.21 0.23 0.16 0.11
+## Var3 0.64 0.65 1.00 0.66 0.21 0.23 0.16 0.11
+## Var4 0.68 0.69 0.66 1.00 0.15 0.23 0.18 0.16
+## Var5 0.22 0.21 0.21 0.15 1.00 0.65 0.67 0.65
+## Var6 0.24 0.23 0.23 0.23 0.65 1.00 0.62 0.66
+## Var7 0.18 0.16 0.16 0.18 0.67 0.62 1.00 0.69
+## Var8 0.15 0.11 0.11 0.16 0.65 0.66 0.69 1.00</code></pre>
+<p>Una vez ya tenemos todos estos valores, juntaremos las dos bases de datos que tenemos hasta el momento, <code>datos_sim01</code> y <code>datos_sim02</code>, en una misma base <code>datos_sim</code>. La función <code>cbind()</code> permite precisamente esto.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="simulación.html#cb53-1" tabindex="-1"></a>datos_sim <span class="ot">&lt;-</span> <span class="fu">cbind</span>(datos, datos_sim02)  </span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="exportar-datos" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Exportar datos<a href="simulación.html#exportar-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para guardar los datos que hemos creado, utilizaremos la función <code>write_sav()</code>, que producirá un archivo .sav (de SPSS). Para establecer el directorio, usamos <code>../</code> para “retroceder” una carpeta. Es decir, dado que este código está (o debiese estar) ubicado en la carpeta <code>02_process</code>, retornaremos a la carpeta general del proyecto, y luego entraremos a la carpeta <code>01_input</code>. Luego de ejecutado el código, debiesemos poder observar la aparición de un archivo llamado <code>datos_sim.sav</code> en dicha carpeta. La dejaremos ahí para futuros ejemplos y ejercicios.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="simulación.html#cb54-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb54-2"><a href="simulación.html#cb54-2" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">write_sav</span>(datos_sim, <span class="st">&quot;../01_input/datos_sim.sav&quot;</span>)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="paquetes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="carga-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04_Simulación.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
