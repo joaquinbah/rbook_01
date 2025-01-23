@@ -8,11 +8,11 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Sobre este libro | _main.knit" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="/images/1.png" />
+  <meta property="og:image" content="/_bookdown_files/images/1.png" />
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
@@ -24,7 +24,7 @@ set in the _output.yml file.</p>" />
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="twitter:image" content="/images/1.png" />
+  <meta name="twitter:image" content="/_bookdown_files/images/1.png" />
 
 
 
@@ -60,7 +60,7 @@ set in the _output.yml file.</p>" />
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +70,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -123,6 +123,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -198,7 +202,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="simulación.html"><a href="simulación.html#simulación-de-variables-correlacionadas"><i class="fa fa-check"></i><b>4.3.1</b> Simulación de Variables Correlacionadas</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="simulación.html"><a href="simulación.html#exportar-datos"><i class="fa fa-check"></i><b>4.4</b> Exportar datos</a></li>
+<li class="chapter" data-level="4.4" data-path="simulación.html"><a href="simulación.html#organizar-y-exportar-base-de-datos"><i class="fa fa-check"></i><b>4.4</b> Organizar y exportar base de datos</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="simulación.html"><a href="simulación.html#libro-de-código"><i class="fa fa-check"></i><b>4.4.1</b> Libro de código</a></li>
+<li class="chapter" data-level="4.4.2" data-path="simulación.html"><a href="simulación.html#exportar-datos"><i class="fa fa-check"></i><b>4.4.2</b> Exportar datos</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="carga-datos.html"><a href="carga-datos.html"><i class="fa fa-check"></i><b>5</b> Cargar datos</a>
 <ul>
@@ -232,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!--bookdown:title:start-->
 <div id="sobre-este-libro" class="section level1 unnumbered hasAnchor">
 <h1>Sobre este libro<a href="index.html#sobre-este-libro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><img src="images/1.png" width="400" /></p>
+<p><img src="_bookdown_files/images/1.png" width="400" /></p>
 <p>El presente documento tiene como objetivo introducir el uso de R, bajo criterios de <a href="https://es.wikipedia.org/wiki/Ciencia_abierta"><strong>ciencia abierta</strong></a>, para el ordenamiento y ejecución de código aplicado principalmente a las ciencias sociales y del comportamiento. Por lo tanto, este documento no es un libro de estadística, sino una guía técnica, específica para el uso de R en <a href="https://posit.co/download/rstudio-desktop/"><strong>RStudio</strong></a> y la implementación de su código.</p>
 <p>Este volumen, en particular, presenta algunos de los fundamentos del uso de R, sugerencias para el ordenamiento del código, uso de notación básica y funciones esenciales.</p>
 <p>Cualquier duda, comentario o sugerencia, por favor dirigirla a Joaquín Bahamondes, autor de esta guía, al e-mail <a href="mailto:jbahamondes@ucn.cl" class="email">jbahamondes@ucn.cl</a></p>
@@ -322,7 +330,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

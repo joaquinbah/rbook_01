@@ -109,7 +109,7 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
@@ -125,8 +125,7 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{sobre-este-libro}{%
-\chapter*{Sobre este libro}\label{sobre-este-libro}}
+\chapter*{Sobre este libro}\label{sobre-este-libro}
 \addcontentsline{toc}{chapter}{Sobre este libro}
 
 \includegraphics[width=4.16667in,height=\textheight]{_bookdown_files/images/1.png}
@@ -137,38 +136,34 @@ Este volumen, en particular, presenta algunos de los fundamentos del uso de R, s
 
 Cualquier duda, comentario o sugerencia, por favor dirigirla a Joaquín Bahamondes, autor de esta guía, al e-mail \href{mailto:jbahamondes@ucn.cl}{\nolinkurl{jbahamondes@ucn.cl}}
 
-\hypertarget{por-quuxe9-r}{%
-\section*{¿Por qué R?}\label{por-quuxe9-r}}
+\section*{¿Por qué R?}\label{por-quuxe9-r}
 \addcontentsline{toc}{section}{¿Por qué R?}
 
 El programa R es una consola de análisis de operadores lógicos, principalmente diseñado para análisis estadísticos, con su propio lenguaje de programación. Quizás más importante, es un software de código abierto, gratuito, de gran flexibilidad y capacidad para gestionar distintos tipos de información y producir múltiples resultados, desde output de análisis estadístico, hasta imágenes, archivos de texto y sitios web (entre otros).
 
-\hypertarget{uxedndice}{%
-\section*{Índice}\label{uxedndice}}
+\section*{Índice}\label{uxedndice}
 \addcontentsline{toc}{section}{Índice}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \protect\hyperlink{estructura-flujo}{Estructura y flujo de trabajo en R}\\
+  \hyperref[estructura-flujo]{Estructura y flujo de trabajo en R}\\
 \item
-  \protect\hyperlink{notacion-funciones}{Notación y funciones básicas}\\
+  \hyperref[notacion-funciones]{Notación y funciones básicas}\\
 \item
-  \protect\hyperlink{paquetes}{Cargar paquetes}\\
+  \hyperref[paquetes]{Cargar paquetes}\\
 \item
-  \protect\hyperlink{simulaciuxf3n}{Simulación simple de datos}\\
+  \hyperref[simulaciuxf3n]{Simulación simple de datos}\\
 \item
-  \protect\hyperlink{carga-datos}{Cargar datos}
+  \hyperref[carga-datos]{Cargar datos}
 \end{enumerate}
 
-\hypertarget{estructura-flujo}{%
-\chapter{Estructura y flujo de trabajo}\label{estructura-flujo}}
+\chapter{Estructura y flujo de trabajo}\label{estructura-flujo}
 
 Como punto de partida, es preciso comprender la organización del código en el espacio de trabajo de R. En esta sección, nos referiremos a la estructura recomendada para organizar el entorno de trabajo (i.e., las carpetas y el flujo entre ellas), así como algunas recomendaciones generales respecto de la estructura interna de cada documento de trabajo.
 
-\hypertarget{flujo-de-trabajo-ipo}{%
-\section{Flujo de trabajo IPO}\label{flujo-de-trabajo-ipo}}
+\section{Flujo de trabajo IPO}\label{flujo-de-trabajo-ipo}
 
 El modelo input--process--output (IPO) es una forma ampliamente adoptada en análisis de sistemas y procesamiento de datos, con el objetivo de proveer un ordenamiento eficiente de la información y los procesos implicados en algún proyecto. Para nuestros propósitos, el protocolo IPO es una forma de ordenar la estructura y el flujo de las carpetas de un proyecto R (\href{https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects}{R project file}) vinculado a un (o una serie de) estudio(s). Éste es enfáticamente recomendado por el Laboratorio de Ciencia Social Abierta (LISA), dado que es altamente adecuado para la apertura de los materiales en base a criterios de Ciencia Abierta.
 
@@ -206,8 +201,7 @@ El siguiente diagrama grafica la estructura general de estas carpetas:
 
 Obtenido desde \url{https://lisa-coes.netlify.app/ipo-repro/}
 
-\hypertarget{estructura-de-un-documento-rmarkdown}{%
-\section{Estructura de un documento Rmarkdown}\label{estructura-de-un-documento-rmarkdown}}
+\section{Estructura de un documento Rmarkdown}\label{estructura-de-un-documento-rmarkdown}
 
 Las secciones de un documento de R, cualquiera sea (archivo de sólo código, RMarkdown o un proyecto) pueden ser organizadas bajo distintos niveles de títulos, los que anidan el contenido correspondiente. Como regla general, debe haber sólo un título de nivel uno (\texttt{\#}) por archivo \texttt{.rmd}, y pueden haber múltiples subtítulos de nivel dos (\texttt{\#\#}), tres (\texttt{\#\#\#}), o de mayor subordinación (\texttt{\#\#\#\#...}).
 En Rmarkdown, bajo cada título o subtítulos, pueden incluirse párrafos de texto como este, lo que no constituye material ejecutable, de modo que éste no será analizado de ninguna forma por el programa, sólo será presentado.
@@ -226,11 +220,9 @@ Toda vez que queramos incluir código ejecutable para procesar algún tipo de in
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{notacion-funciones}{%
-\chapter{Notación y Funciones básicas}\label{notacion-funciones}}
+\chapter{Notación y Funciones básicas}\label{notacion-funciones}
 
-\hypertarget{notaciuxf3n-esencial}{%
-\section{Notación esencial}\label{notaciuxf3n-esencial}}
+\section{Notación esencial}\label{notaciuxf3n-esencial}
 
 En R, los operadores básicos son:
 
@@ -241,25 +233,24 @@ Notación/función & símbolo usado \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\protect\hyperlink{asignaciuxf3n}{Asignación} & \textless- \\
-\protect\hyperlink{comentario}{Comentario} & \# \\
-\protect\hyperlink{combinar}{Combinar} & c() \\
-\protect\hyperlink{separador}{Separador de Argumentos} & , \\
-\protect\hyperlink{texto}{Texto} & ``\,'' o '\,' \\
-\protect\hyperlink{equivalencia}{Equivalencia} & == \\
-\protect\hyperlink{OR}{Operador O} & \textbar{} \\
-\protect\hyperlink{comparaciuxf3n}{Comparación} & \textgreater, \textless, \textgreater=, \textless= \\
-\protect\hyperlink{acceso}{Acceso a columnas de dato, matriz o lista} & \$ \\
-\protect\hyperlink{indexaciuxf3n}{Indexación} & {[}{]} \\
-\protect\hyperlink{llamada}{Llamada de función o agrupación} & () \\
-\protect\hyperlink{pertenencia}{Pertenencia} & \%in\% \\
-\protect\hyperlink{negaciuxf3n}{Negación} & ! \\
-\protect\hyperlink{secuencia}{Secuencia} & : \\
-\protect\hyperlink{aritmeticos}{Operadores aritméticos} & *, /, +, - \\
+\hyperref[asignaciuxf3n]{Asignación} & \textless- \\
+\hyperref[comentario]{Comentario} & \# \\
+\hyperref[combinar]{Combinar} & c() \\
+\hyperref[separador]{Separador de Argumentos} & , \\
+\hyperref[texto]{Texto} & ``\,'' o '\,' \\
+\hyperref[equivalencia]{Equivalencia} & == \\
+\hyperref[OR]{Operador O} & \textbar{} \\
+\hyperref[comparaciuxf3n]{Comparación} & \textgreater, \textless, \textgreater=, \textless= \\
+\hyperref[acceso]{Acceso a columnas de dato, matriz o lista} & \$ \\
+\hyperref[indexaciuxf3n]{Indexación} & {[}{]} \\
+\hyperref[llamada]{Llamada de función o agrupación} & () \\
+\hyperref[pertenencia]{Pertenencia} & \%in\% \\
+\hyperref[negaciuxf3n]{Negación} & ! \\
+\hyperref[secuencia]{Secuencia} & : \\
+\hyperref[aritmeticos]{Operadores aritméticos} & *, /, +, - \\
 \end{longtable}
 
-\hypertarget{asignaciuxf3n}{%
-\subsection{\textless- (Asignación)}\label{asignaciuxf3n}}
+\subsection{\textless- (Asignación)}\label{asignaciuxf3n}
 
 Uso: Asigna valores a una variable. También se puede usar = para asignaciones básicas, pero \textless- es el operador recomendado.\\
 Ejemplo:
@@ -273,8 +264,7 @@ Ejemplo:
 
 Nota: -\textgreater{} también existe, aunque es poco común y asigna en la dirección opuesta (valor -\textgreater{} variable).
 
-\hypertarget{comentario}{%
-\subsection{\# (Comentario)}\label{comentario}}
+\subsection{\# (Comentario)}\label{comentario}
 
 Uso: Agrega comentarios en el código. R ignora todo el texto a la derecha del \# en esa línea.\\
 Ejemplo:
@@ -285,8 +275,7 @@ Ejemplo:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{combinar}{%
-\subsection{c (Combinar)}\label{combinar}}
+\subsection{c (Combinar)}\label{combinar}
 
 Uso: Agrupa distintos elementos en un listado o grupo que puede utilizarse como bloque para múltiples propósitos.\\
 Ejemplo:
@@ -300,8 +289,7 @@ Ejemplo:
 
 Nota: Los comentarios son esenciales para documentar y hacer el código más comprensible.
 
-\hypertarget{separador}{%
-\subsection{, (Separador de Argumentos)}\label{separador}}
+\subsection{, (Separador de Argumentos)}\label{separador}
 
 Uso: Separa elementos en funciones o elementos de un vector/matriz.\\
 Ejemplo:
@@ -314,8 +302,7 @@ Ejemplo:
 
 Nota: También se usa para separar filas y columnas en indexación de matrices y data frames.
 
-\hypertarget{texto}{%
-\subsection{``\,'' o '\,' (Definición de Cadenas de Texto)}\label{texto}}
+\subsection{``\,'' o '\,' (Definición de Cadenas de Texto)}\label{texto}
 
 Uso: Define valores de tipo carácter (strings).
 Ejemplo:
@@ -329,8 +316,7 @@ Ejemplo:
 
 Nota: En R, '' y ' son equivalentes. Sin embargo, es más común usar '' para cadenas de texto.
 
-\hypertarget{equivalencia}{%
-\subsection{== (Igualdad Lógica)}\label{equivalencia}}
+\subsection{== (Igualdad Lógica)}\label{equivalencia}
 
 Uso: Compara si dos valores son iguales. Devuelve TRUE o FALSE.\\
 Ejemplo:
@@ -345,8 +331,7 @@ Ejemplo:
 
 Nota: No confundir con = que es un operador de asignación (aunque puede ser usado en argumentos de funciones).
 
-\hypertarget{OR}{%
-\subsection{\textbar{} (OR Lógico)}\label{OR}}
+\subsection{\textbar{} (OR Lógico)}\label{OR}
 
 Uso: Devuelve TRUE si al menos una de las condiciones es TRUE.
 Ejemplo:
@@ -357,8 +342,7 @@ Ejemplo:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{comparaciuxf3n}{%
-\subsection{\textgreater, \textless, \textgreater=, \textless= (Comparación)}\label{comparaciuxf3n}}
+\subsection{\textgreater, \textless, \textgreater=, \textless= (Comparación)}\label{comparaciuxf3n}
 
 Uso: Operadores de comparación para verificar si un valor es mayor, menor, mayor o igual, o menor o igual que otro.
 Ejemplo:
@@ -383,8 +367,7 @@ Ejemplo:
 ## [1] FALSE
 \end{verbatim}
 
-\hypertarget{acceso}{%
-\subsection{\$ (Acceso a Columnas de Data Frames o Listas)}\label{acceso}}
+\subsection{\$ (Acceso a Columnas de Data Frames o Listas)}\label{acceso}
 
 Uso: Permite acceder a una columna específica en un data frame o a un elemento en una lista.
 Ejemplo:
@@ -402,8 +385,7 @@ Ejemplo:
 
 Nota: Es especialmente útil en análisis de datos cuando necesitas acceder rápidamente a columnas (i.e., variables) específicas.
 
-\hypertarget{indexaciuxf3n}{%
-\subsection{{[}{]} (Indexación)}\label{indexaciuxf3n}}
+\subsection{{[}{]} (Indexación)}\label{indexaciuxf3n}
 
 Uso: Extrae elementos de vectores, listas, matrices o data frames.
 Ejemplo:
@@ -421,8 +403,7 @@ Ejemplo:
 
 Nota: {[}fila, columna{]} se usa para acceder a elementos en matrices o data frames.
 
-\hypertarget{llamada}{%
-\subsection{() (Llamada de Funciones o Agrupación)}\label{llamada}}
+\subsection{() (Llamada de Funciones o Agrupación)}\label{llamada}
 
 Uso: Agrupa expresiones o se usa para pasar argumentos en funciones. Hemos estado usándola para aplicar todas las funciones presentadas anteriormente.
 Ejemplo:
@@ -435,8 +416,7 @@ Ejemplo:
 
 Nota: También se usa para forzar el orden de operaciones en expresiones matemáticas.
 
-\hypertarget{pertenencia}{%
-\subsection{\%in\% (Pertenencia)}\label{pertenencia}}
+\subsection{\%in\% (Pertenencia)}\label{pertenencia}
 
 Uso: Verifica si un elemento está presente en un vector.
 Ejemplo:
@@ -452,8 +432,7 @@ Ejemplo:
 ## [1] TRUE
 \end{verbatim}
 
-\hypertarget{negaciuxf3n}{%
-\subsection{! (Negación)}\label{negaciuxf3n}}
+\subsection{! (Negación)}\label{negaciuxf3n}
 
 Uso: Niega una condición lógica (convierte TRUE a FALSE y viceversa).
 Ejemplo:
@@ -469,8 +448,7 @@ Ejemplo:
 ## [1] TRUE
 \end{verbatim}
 
-\hypertarget{secuencia}{%
-\subsection{: (Secuencia)}\label{secuencia}}
+\subsection{: (Secuencia)}\label{secuencia}
 
 Uso: Genera una secuencia de números enteros.
 Ejemplo:
@@ -485,8 +463,7 @@ Ejemplo:
 ## [1] 1 2 3 4 5
 \end{verbatim}
 
-\hypertarget{operadores-aritmuxe9ticos-aritmeticos}{%
-\subsection{*, /, +, - (Operadores Aritméticos) \{\#aritmeticos\}}\label{operadores-aritmuxe9ticos-aritmeticos}}
+\subsection{*, /, +, - (Operadores Aritméticos) \{\#aritmeticos\}}\label{operadores-aritmuxe9ticos-aritmeticos}
 
 Uso: Realizan operaciones aritméticas básicas de multiplicación, división, suma y resta.
 Ejemplo:
@@ -502,8 +479,7 @@ En general, el lenguaje R se trata de aplicar funciones a objetos, de modo que `
 
 Probablemente la función más útil en R es \texttt{combine}, la cual se aplica simplemente con \texttt{c(x)}. consideremos el siguiente ejemplo:
 
-\hypertarget{combine}{%
-\subsection{Combine}\label{combine}}
+\subsection{Combine}\label{combine}
 
 Esta función sirve, entre otras cosas, para combinar distintos elementos (e.g., valores) dentro de una misma lista. Por ejemplo, si tenemos 5 sujetos cuyas edades son 28, 37, 29, 43, y 34, podemos crear un objeto (en este caso, un vector) que contenga dicha información, simplemente con el siguiente código
 
@@ -518,13 +494,11 @@ Al ejecutar ese código, se creará un nuevo objeto, llamado \texttt{edades}, qu
 \texttt{mean(edades)} = 34.2\\
 \texttt{sd(edades)} = 6.14
 
-\hypertarget{paquetes}{%
-\chapter{Instalación y uso de paquetes}\label{paquetes}}
+\chapter{Instalación y uso de paquetes}\label{paquetes}
 
 En R, los paquetes son colecciones organizadas de funciones, datos y/o documentación diseñadas para facilitar tareas específicas en programación y análisis. Lo principal es que extienden las capacidades base de R, permitiendo a los usuarios acceder a funcionalidades adicionales sin tener que programarlas desde cero.
 
-\hypertarget{instalaciuxf3n}{%
-\section{Instalación:}\label{instalaciuxf3n}}
+\section{Instalación:}\label{instalaciuxf3n}
 
 Los paquetes deben instalarse una vez antes de su primer uso en el entorno de R. Esto se hace con la función
 
@@ -536,8 +510,7 @@ Los paquetes deben instalarse una vez antes de su primer uso en el entorno de R.
 
 la cual descarga el paquete y lo guarda en la biblioteca de R local.
 
-\hypertarget{carga}{%
-\section{Carga:}\label{carga}}
+\section{Carga:}\label{carga}
 
 Después de instalar un paquete, se debe cargar en cada nueva sesión de R para acceder a sus funciones, lo cual se hace usando
 
@@ -549,13 +522,11 @@ Después de instalar un paquete, se debe cargar en cada nueva sesión de R para 
 
 Esto permite que R reconozca las funciones y datos contenidos en el paquete.
 
-\hypertarget{uso}{%
-\section{Uso:}\label{uso}}
+\section{Uso:}\label{uso}
 
 Una vez cargado, el usuario puede llamar a las funciones y utilizar los datos incluidos en el paquete de manera inmediata. Las funciones dentro del paquete están diseñadas para integrarse con el entorno R y suelen seguir la misma sintaxis y estilo.
 
-\hypertarget{actualizaciuxf3n-y-gestiuxf3n}{%
-\section{Actualización y Gestión:}\label{actualizaciuxf3n-y-gestiuxf3n}}
+\section{Actualización y Gestión:}\label{actualizaciuxf3n-y-gestiuxf3n}
 
 Los paquetes deben actualizarse periódicamente para aprovechar mejoras, correcciones y nuevas funcionalidades. Esto se hace con
 
@@ -565,8 +536,7 @@ Los paquetes deben actualizarse periódicamente para aprovechar mejoras, correcc
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{uso-de-pacman}{%
-\section{Uso de Pacman}\label{uso-de-pacman}}
+\section{Uso de Pacman}\label{uso-de-pacman}
 
 \textbf{Pacman} es un paquete destinado a facilitar la instalación y carga de paquetes en R.\\
 En esta guía, recomendamos hacer uso rutinario de la función \texttt{p\_load}, dentro de la cual se puede definir un conjunto de paquetes (seprados por ,) que deban cargarse, según las funciones necesarias para la sesión. Una de las principales utilidades de esta función es que instala aquellos paquetes que no estén instalados en el entorno local.
@@ -577,16 +547,13 @@ En esta guía, recomendamos hacer uso rutinario de la función \texttt{p\_load},
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{simulaciuxf3n}{%
-\chapter{Simulación}\label{simulaciuxf3n}}
+\chapter{Simulación}\label{simulaciuxf3n}
 
 Simular datos en R es una técnica útil para pruebas, experimentos o validaciones estadísticas sin necesidad de datos reales. Con funciones como \texttt{rnorm()}, \texttt{runif()}, \texttt{sample()}, y \texttt{rbinom()}, R permite generar datos que cumplen con ciertas distribuciones y características básicas, como la media, la desviación estándar, la cantidad de observaciones, entre otras.
 
-\hypertarget{generaciuxf3n-de-datos}{%
-\section{Generación de Datos}\label{generaciuxf3n-de-datos}}
+\section{Generación de Datos}\label{generaciuxf3n-de-datos}
 
-\hypertarget{datos-normales}{%
-\subsection{Datos Normales:}\label{datos-normales}}
+\subsection{Datos Normales:}\label{datos-normales}
 
 Para generar datos con una distribución normal, se usa \texttt{rnorm(n,\ mean,\ sd)}, donde:
 
@@ -620,8 +587,7 @@ Para generar datos con una distribución normal, se usa \texttt{rnorm(n,\ mean,\
 
 \includegraphics{_main_files/figure-latex/unnamed-chunk-23-1.pdf}
 
-\hypertarget{datos-uniformes}{%
-\subsection{Datos Uniformes:}\label{datos-uniformes}}
+\subsection{Datos Uniformes:}\label{datos-uniformes}
 
 Para una distribución uniforme, que genera valores entre un rango específico con la misma probabilidad, se usa \texttt{runif(n,\ min,\ max)}:
 
@@ -647,8 +613,7 @@ Para una distribución uniforme, que genera valores entre un rango específico c
 
 \includegraphics{_main_files/figure-latex/unnamed-chunk-24-1.pdf}
 
-\hypertarget{datos-binomiales}{%
-\subsection{Datos Binomiales:}\label{datos-binomiales}}
+\subsection{Datos Binomiales:}\label{datos-binomiales}
 
 Para datos binarios o con un número fijo de éxitos (p.ej., tiradas de moneda), se usa \texttt{rbinom(n,\ size,\ prob)}, donde:
 
@@ -676,28 +641,23 @@ Para datos binarios o con un número fijo de éxitos (p.ej., tiradas de moneda),
 
 \includegraphics{_main_files/figure-latex/unnamed-chunk-25-1.pdf}
 
-\hypertarget{manipulaciuxf3n-de-caracteruxedsticas-de-los-datos}{%
-\section{Manipulación de Características de los Datos}\label{manipulaciuxf3n-de-caracteruxedsticas-de-los-datos}}
+\section{Manipulación de Características de los Datos}\label{manipulaciuxf3n-de-caracteruxedsticas-de-los-datos}
 
-\hypertarget{cambio-de-la-media-y-desviaciuxf3n-estuxe1ndar}{%
-\subsection{Cambio de la media y desviación estándar:}\label{cambio-de-la-media-y-desviaciuxf3n-estuxe1ndar}}
+\subsection{Cambio de la media y desviación estándar:}\label{cambio-de-la-media-y-desviaciuxf3n-estuxe1ndar}
 
 La media y la desviación estándar se pueden ajustar en funciones como \texttt{rnorm()} para controlar la distribución y dispersión de los datos.
 
-\hypertarget{tamauxf1o-de-la-muestra}{%
-\subsection{Tamaño de la muestra:}\label{tamauxf1o-de-la-muestra}}
+\subsection{Tamaño de la muestra:}\label{tamauxf1o-de-la-muestra}
 
 Ajustando el parámetro \texttt{n}, se modifica la cantidad de datos generados, lo cual es útil para realizar pruebas de análisis en conjuntos grandes o pequeños.
 
-\hypertarget{rango-de-valores}{%
-\subsection{Rango de valores:}\label{rango-de-valores}}
+\subsection{Rango de valores:}\label{rango-de-valores}
 
 Para obtener valores en rangos específicos (p.ej., entre 0 y 100), \texttt{runif()} permite definir estos límites con \texttt{min} y \texttt{max}.
 
 Estos métodos permiten generar datos con propiedades controladas, ayudando a diseñar experimentos o pruebas que se asemejan a escenarios reales y asegurando variabilidad y control en las simulaciones.
 
-\hypertarget{creaciuxf3n-de-una-base-de-datos-en-r}{%
-\section{Creación de una base de datos en R}\label{creaciuxf3n-de-una-base-de-datos-en-r}}
+\section{Creación de una base de datos en R}\label{creaciuxf3n-de-una-base-de-datos-en-r}
 
 A continuación, crearemos una base de dato desde cero en este mismo entorno, practicando la creación de distintos objetos, vectores, matrices, y terminando por guardar una base de datos exportable. Recuerda que las características de cualquiera de estas variables puede ser modificada a nuestro antojo, y poder ajustarlas a nuestros propósitos particulares.\\
 Para no repetir sistemáticamente el mismo número en caso que queramos modificarlo, definiremos el número de casos. Para esto, simplemente guardamos en un objeto el n deseado.
@@ -788,16 +748,16 @@ Como cada variable está por su lado, crearemos una base de datos (i.e., datafra
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Crear el data frame}
-\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-         \AttributeTok{id =}\NormalTok{ id\_vec,}
-         \AttributeTok{edad =}\NormalTok{ edades,}
-         \AttributeTok{altura\_cm =}\NormalTok{ mx\_altura\_peso[, }\StringTok{"Altura\_cm"}\NormalTok{],}
-         \AttributeTok{peso\_kg =}\NormalTok{ mx\_altura\_peso[, }\StringTok{"Peso\_kg"}\NormalTok{],}
-         \AttributeTok{educacion =}\NormalTok{ nivel\_educativo}
+\NormalTok{datos\_sim01 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+               \AttributeTok{id =}\NormalTok{ id\_vec,}
+               \AttributeTok{edad =}\NormalTok{ edades,}
+               \AttributeTok{altura\_cm =}\NormalTok{ mx\_altura\_peso[, }\StringTok{"Altura\_cm"}\NormalTok{],}
+               \AttributeTok{peso\_kg =}\NormalTok{ mx\_altura\_peso[, }\StringTok{"Peso\_kg"}\NormalTok{],}
+               \AttributeTok{educacion =}\NormalTok{ nivel\_educativo}
 \NormalTok{)}
 
 \CommentTok{\# Imprimir el data frame}
-\FunctionTok{head}\NormalTok{(datos)}
+\FunctionTok{head}\NormalTok{(datos\_sim01)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -811,13 +771,9 @@ Como cada variable está por su lado, crearemos una base de datos (i.e., datafra
 ## 6 id 6   33       191      59     Media
 \end{verbatim}
 
-\hypertarget{simulaciuxf3n-de-variables-correlacionadas}{%
-\subsection{Simulación de Variables Correlacionadas}\label{simulaciuxf3n-de-variables-correlacionadas}}
+\subsection{Simulación de Variables Correlacionadas}\label{simulaciuxf3n-de-variables-correlacionadas}
 
 En este ejemplo, generaremos ocho variables simuladas divididas en dos bloques. Las variables dentro de cada bloque tendrán correlaciones más altas entre sí, mientras que las correlaciones entre bloques serán más bajas. Esto debiese facilitar (si no asegurar) la emergencia de dos factores en un análisis factorial. Posteriormente, las incluiremos en la base de datos creada.
-
-\hypertarget{paso-1-configuraciuxf3n-inicial}{%
-\subsubsection{Paso 1: Configuración Inicial}\label{paso-1-configuraciuxf3n-inicial}}
 
 Definimos las dimensiones y las matrices de correlación.
 
@@ -876,7 +832,6 @@ Ahora definiremos arbitrareamente parámetros para simular datos que reproduzcan
 \NormalTok{medias }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\FloatTok{2.5}\NormalTok{, }\DecValTok{8}\NormalTok{)  }\CommentTok{\# Medias para las 8 variables}
 \NormalTok{mini }\OtherTok{\textless{}{-}} \DecValTok{0}
 \NormalTok{maxi }\OtherTok{\textless{}{-}} \DecValTok{5}
-\NormalTok{cov\_matrix }\OtherTok{\textless{}{-}}\NormalTok{ cor\_matrix  }\CommentTok{\# La matriz de covarianza es equivalente a la de correlación aquí}
 \end{Highlighting}
 \end{Shaded}
 
@@ -887,7 +842,7 @@ La función \texttt{mvrnorm()} nos permitirá crear una distribución normal mul
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 
 \CommentTok{\# Generar datos}
-\NormalTok{datos\_sim02 }\OtherTok{\textless{}{-}} \FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n =}\NormalTok{ n, }\AttributeTok{mu =}\NormalTok{ medias, }\AttributeTok{Sigma =}\NormalTok{ cov\_matrix)}
+\NormalTok{datos\_sim02 }\OtherTok{\textless{}{-}} \FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n =}\NormalTok{ n, }\AttributeTok{mu =}\NormalTok{ medias, }\AttributeTok{Sigma =}\NormalTok{ cor\_matrix)}
 \DocumentationTok{\#\# aseguramos que ningún dato baje del mínimo}
 \NormalTok{datos\_sim02 }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(datos\_sim02 }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, datos\_sim02)}
 \DocumentationTok{\#\# aseguramos que ningún dato supere el máximo}
@@ -911,7 +866,7 @@ La función \texttt{mvrnorm()} nos permitirá crear una distribución normal mul
 \NormalTok{datos\_sim02 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(datos\_sim02)}
 
 \CommentTok{\# Nombrar las variables}
-\FunctionTok{names}\NormalTok{(datos\_sim02) }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Var"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{)}
+\FunctionTok{names}\NormalTok{(datos\_sim02) }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"var"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{)}
 
 \CommentTok{\# Imprimir primeros casos para chequear que todo ande ok}
 \FunctionTok{head}\NormalTok{(datos\_sim02)}
@@ -919,7 +874,7 @@ La función \texttt{mvrnorm()} nos permitirá crear una distribución normal mul
 \end{Shaded}
 
 \begin{verbatim}
-##   Var1 Var2 Var3 Var4 Var5 Var6 Var7 Var8
+##   var1 var2 var3 var4 var5 var6 var7 var8
 ## 1    4    5    4    4    2    2    1    1
 ## 2    3    3    4    3    2    2    2    1
 ## 3    2    1    1    1    2    1    2    1
@@ -938,64 +893,201 @@ Prosigamos a estimar la matriz de correlación observada para estos datos, a tra
 \end{Shaded}
 
 \begin{verbatim}
-##      Var1 Var2 Var3 Var4 Var5 Var6 Var7 Var8
-## Var1 1.00 0.70 0.64 0.68 0.22 0.24 0.18 0.15
-## Var2 0.70 1.00 0.65 0.69 0.21 0.23 0.16 0.11
-## Var3 0.64 0.65 1.00 0.66 0.21 0.23 0.16 0.11
-## Var4 0.68 0.69 0.66 1.00 0.15 0.23 0.18 0.16
-## Var5 0.22 0.21 0.21 0.15 1.00 0.65 0.67 0.65
-## Var6 0.24 0.23 0.23 0.23 0.65 1.00 0.62 0.66
-## Var7 0.18 0.16 0.16 0.18 0.67 0.62 1.00 0.69
-## Var8 0.15 0.11 0.11 0.16 0.65 0.66 0.69 1.00
+##      var1 var2 var3 var4 var5 var6 var7 var8
+## var1 1.00 0.70 0.64 0.68 0.22 0.24 0.18 0.15
+## var2 0.70 1.00 0.65 0.69 0.21 0.23 0.16 0.11
+## var3 0.64 0.65 1.00 0.66 0.21 0.23 0.16 0.11
+## var4 0.68 0.69 0.66 1.00 0.15 0.23 0.18 0.16
+## var5 0.22 0.21 0.21 0.15 1.00 0.65 0.67 0.65
+## var6 0.24 0.23 0.23 0.23 0.65 1.00 0.62 0.66
+## var7 0.18 0.16 0.16 0.18 0.67 0.62 1.00 0.69
+## var8 0.15 0.11 0.11 0.16 0.65 0.66 0.69 1.00
 \end{verbatim}
 
-Una vez ya tenemos todos estos valores, juntaremos las dos bases de datos que tenemos hasta el momento, \texttt{datos\_sim01} y \texttt{datos\_sim02}, en una misma base \texttt{datos\_sim}. La función \texttt{cbind()} permite precisamente esto.
+\section{Organizar y exportar base de datos}\label{organizar-y-exportar-base-de-datos}
+
+Una vez ya tenemos todos estos valores, juntaremos las dos bases de datos que tenemos hasta el momento, \texttt{datos\_sim01} y \texttt{datos\_sim02}, en una misma base \texttt{datos\_sim}. La función \texttt{cbind()} permite precisamente esto, al unir columnas para dos conjuntos de datos cuyas filas son exactamente las mismas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{datos\_sim }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(datos, datos\_sim02)  }
+\NormalTok{datos\_sim }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(datos\_sim01, datos\_sim02)  }
+\FunctionTok{head}\NormalTok{(datos\_sim)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exportar-datos}{%
-\section{Exportar datos}\label{exportar-datos}}
+\begin{verbatim}
+##     id edad altura_cm peso_kg educacion var1 var2 var3 var4 var5 var6 var7 var8
+## 1 id 1   50       180      65     Media    4    5    4    4    2    2    1    1
+## 2 id 2   34       164      72     Media    3    3    4    3    2    2    2    1
+## 3 id 3   33       200      82     Media    2    1    1    1    2    1    2    1
+## 4 id 4   22       163      89     Media    3    3    3    2    2    2    2    2
+## 5 id 5   56       152      89     Media    2    2    2    2    3    3    2    2
+## 6 id 6   33       191      59     Media    1    1    1    1    1    1    2    1
+\end{verbatim}
+
+Ahora, antes de proseguir a crear nuestro libro de código y exportar los datos, asignaremos una descripción breve a cada variable, de modo que podamos comunicar de qué se trata cada variable, más allá de los códigos que las identifican en la base de datos, los que usualmente no resultan demasiado informativos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Etiquetas variables}
+
+\NormalTok{var.labels  }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}
+\AttributeTok{id=}\StringTok{"identificador unico"}\NormalTok{,}
+\AttributeTok{edad =}\StringTok{"edad en años"}\NormalTok{,}
+\AttributeTok{altura\_cm =}\StringTok{"altura en centrimetros"}\NormalTok{,}
+\AttributeTok{peso\_kg=}\StringTok{"peso en kilos"}\NormalTok{,}
+\AttributeTok{educacion=}\StringTok{"nivel educativo"}\NormalTok{,}
+\AttributeTok{var1=}\StringTok{"actitud 1"}\NormalTok{,}
+\AttributeTok{var2=}\StringTok{"actitud 2"}\NormalTok{,}
+\AttributeTok{var3=}\StringTok{"actitud 3"}\NormalTok{,}
+\AttributeTok{var4=}\StringTok{"actitud 4"}\NormalTok{,}
+\AttributeTok{var5=}\StringTok{"actitud 5"}\NormalTok{,}
+\AttributeTok{var6=}\StringTok{"actitud 6"}\NormalTok{,}
+\AttributeTok{var7=}\StringTok{"actitud 7"}\NormalTok{,}
+\AttributeTok{var8=}\StringTok{"actitud 8"}\NormalTok{)}
+
+\CommentTok{\# Incluir etiquetas a la base de datos}
+
+\NormalTok{Hmisc}\SpecialCharTok{::}\FunctionTok{label}\NormalTok{(datos\_sim) }\OtherTok{\textless{}{-}} \FunctionTok{as.list}\NormalTok{(var.labels[}\FunctionTok{match}\NormalTok{(}\FunctionTok{names}\NormalTok{(datos\_sim), }\FunctionTok{names}\NormalTok{(var.labels))])}
+
+\FunctionTok{rm}\NormalTok{(var.labels) }\CommentTok{\# elimina el objeto}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Libro de código}\label{libro-de-cuxf3digo}
+
+Para esta sección, debemos asegurarnos de haber cargado los siguientes paquetes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(codebookr, tibble, sjlabelled, dplyr, xtable, gridExtra, openxlsx)}
+\end{Highlighting}
+\end{Shaded}
+
+Una alternativa relativamente completa es a través de la función \texttt{codebook()}, del paquete \texttt{codebookr}. Esta produce un documento al cual se le puede añadir bastante información, incluyendo una descripción de los datos.
+
+Primero se crea un objeto codebook
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{codebook01 }\OtherTok{\textless{}{-}}\NormalTok{ codebookr}\SpecialCharTok{::}\FunctionTok{codebook}\NormalTok{(}
+  \AttributeTok{df =}\NormalTok{ datos\_sim,}
+  \AttributeTok{title =} \StringTok{"Datos sim"}\NormalTok{,}
+  \AttributeTok{subtitle =} \StringTok{"Datos simulados para el taller de introducción en R 2025"}\NormalTok{,}
+  \AttributeTok{description =} \StringTok{"La base de datos simulados DATOS SIMULADOS es un producto de los procesos realizados en el taller introductorio a R, realizado en Enero de 2025 en la UCN. Se trata de un conjunto de datos ficticios que contiene 13 variables en total, con 200 casos. Más información se puede encontrar en el repositorio público https://osf.io/xxxx. En caso de preguntas o comentarios, dirigirlos al Dr. Joaquín Bahamondes, jbahamondes@ucn.cl"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Una vez contamos con el objeto codebook en nuestro entorno, podemos ``imprimirlo'' en un documento. Por ejemplo, el siguiente código lo exportará a un documento word.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(codebook01, }\StringTok{"../03\_output/codebook01.docx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Es posible que los libros de código creados por la función \texttt{codebook()} contengan más información de la que, para nuestros usos, consideramos necesaria. En R, es simple hacer libros de código más sencillos a través de la creación de tablas ad-hoc. Para esto es necesario haber incluido etiquetas (labels) a las variables; Cosa que ya hicimos con la función \texttt{label()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# extract labels from dataframe and store as new object}
+\NormalTok{codebook02 }\OtherTok{\textless{}{-}}\NormalTok{ tibble}\SpecialCharTok{::}\FunctionTok{enframe}\NormalTok{(}\FunctionTok{get\_label}\NormalTok{(datos\_sim))}
+\CommentTok{\# use more informative column names}
+\FunctionTok{colnames}\NormalTok{(codebook02) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Variable"}\NormalTok{, }\StringTok{"Contenido"}\NormalTok{)}
+\CommentTok{\# Show the new data frame}
+\NormalTok{codebook02}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 13 x 2
+##    Variable  Contenido             
+##    <chr>     <chr>                 
+##  1 id        identificador unico   
+##  2 edad      edad en años          
+##  3 altura_cm altura en centrimetros
+##  4 peso_kg   peso en kilos         
+##  5 educacion nivel educativo       
+##  6 var1      actitud 1             
+##  7 var2      actitud 2             
+##  8 var3      actitud 3             
+##  9 var4      actitud 4             
+## 10 var5      actitud 5             
+## 11 var6      actitud 6             
+## 12 var7      actitud 7             
+## 13 var8      actitud 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{descriptives }\OtherTok{\textless{}{-}}\NormalTok{ datos\_sim }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ psych}\SpecialCharTok{::}\FunctionTok{describe}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{as\_tibble}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\StringTok{"n"}\NormalTok{,}\StringTok{"min"}\NormalTok{,}\StringTok{"max"}\NormalTok{,}\StringTok{"mean"}\NormalTok{)}
+
+\CommentTok{\# add stats to codebook }
+\NormalTok{codebook02 }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(codebook02,descriptives)}
+\NormalTok{codebook02}\SpecialCharTok{$}\NormalTok{min }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(codebook02}\SpecialCharTok{$}\NormalTok{min, }\DecValTok{2}\NormalTok{)}
+\NormalTok{codebook02}\SpecialCharTok{$}\NormalTok{max }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(codebook02}\SpecialCharTok{$}\NormalTok{max, }\DecValTok{2}\NormalTok{)}
+\NormalTok{codebook02}\SpecialCharTok{$}\NormalTok{mean }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(codebook02}\SpecialCharTok{$}\NormalTok{mean, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# HTML codebook}
+\FunctionTok{colnames}\NormalTok{(codebook02) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"ID variable"}\NormalTok{, }\StringTok{"Contenido"}\NormalTok{, }\StringTok{"n"}\NormalTok{, }\StringTok{"min"}\NormalTok{, }\StringTok{"max"}\NormalTok{, }\StringTok{"media"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{xtable}\NormalTok{(codebook02[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, ]), }\AttributeTok{type=}\StringTok{"html"}\NormalTok{, }\AttributeTok{file=}\StringTok{"../03\_output/codebook\_html.html"}\NormalTok{)}
+
+\CommentTok{\# PDF codebook}
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"../03\_output/codebook\_pdf.pdf"}\NormalTok{, }\AttributeTok{height=}\DecValTok{12}\NormalTok{, }\AttributeTok{width=}\DecValTok{7}\NormalTok{)}
+\FunctionTok{grid.table}\NormalTok{(codebook02)}
+\FunctionTok{dev.off}\NormalTok{()}
+
+\CommentTok{\# excel codebook}
+\FunctionTok{write.xlsx}\NormalTok{(codebook02, }\AttributeTok{file =} \StringTok{"../03\_output/codebook\_xl.xlsx"}\NormalTok{, }\AttributeTok{colNames =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\subsection{Exportar datos}\label{exportar-datos}
 
 Para guardar los datos que hemos creado, utilizaremos la función \texttt{write\_sav()}, que producirá un archivo .sav (de SPSS). Para establecer el directorio, usamos \texttt{../} para ``retroceder'' una carpeta. Es decir, dado que este código está (o debiese estar) ubicado en la carpeta \texttt{02\_process}, retornaremos a la carpeta general del proyecto, y luego entraremos a la carpeta \texttt{01\_input}. Luego de ejecutado el código, debiesemos poder observar la aparición de un archivo llamado \texttt{datos\_sim.sav} en dicha carpeta. La dejaremos ahí para futuros ejemplos y ejercicios.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(haven)}
-\NormalTok{haven}\SpecialCharTok{::}\FunctionTok{write\_sav}\NormalTok{(datos\_sim, }\StringTok{"../01\_input/datos\_sim.sav"}\NormalTok{)}
+\DocumentationTok{\#\# datos de SPSS}
+\NormalTok{haven}\SpecialCharTok{::}\FunctionTok{write\_sav}\NormalTok{(datos\_sim, }\StringTok{"../03\_input/datos\_sim.sav"}\NormalTok{)}
+\DocumentationTok{\#\# datos de R}
+\FunctionTok{saveRDS}\NormalTok{(datos\_sim, }\AttributeTok{file =} \StringTok{"../03\_input/datos\_sim.rds"}\NormalTok{)}
+\DocumentationTok{\#\# datos de excel}
+\NormalTok{openxlsx}\SpecialCharTok{::}\FunctionTok{write.xlsx}\NormalTok{(codebook02, }\AttributeTok{file =} \StringTok{"../03\_input/datos\_sim.xlsx"}\NormalTok{, }\AttributeTok{colNames =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{carga-datos}{%
-\chapter{Cargar datos}\label{carga-datos}}
+\chapter{Cargar datos}\label{carga-datos}
 
 R facilita la importación de datos desde una variedad de formatos, como \textbf{CSV}, \textbf{Excel}, \textbf{TXT} y \textbf{RDS}. Existen funciones específicas para cada tipo de archivo, que permiten cargar los datos y manipularlos de manera directa en el entorno de trabajo de R.
 
-\hypertarget{formato-csv}{%
-\section{Formato CSV}\label{formato-csv}}
+\section{Formato CSV}\label{formato-csv}
 
 El formato \textbf{CSV} (valores separados por comas) es uno de los más comunes para almacenar datos tabulares. Para cargar un archivo CSV, se usa la función \texttt{read.csv()} o \texttt{read\_csv()} del paquete \texttt{readr} (que es más rápida para archivos grandes):
 
-\hypertarget{formato-excel}{%
-\section{Formato Excel}\label{formato-excel}}
+\section{Formato Excel}\label{formato-excel}
 
 Para archivos Excel (.xls o .xlsx), R requiere el paquete readxl. La función \texttt{read\_excel()} permite especificar la hoja que se quiere importar:
 
-\hypertarget{formato-txt}{%
-\section{Formato TXT}\label{formato-txt}}
+\section{Formato TXT}\label{formato-txt}
 
 Los archivos TXT suelen estar delimitados por tabulaciones o espacios. Se utiliza \texttt{read.table()} o \texttt{read\_delim()} (de \texttt{readr}), donde se especifica el delimitador:
 
-\hypertarget{formato-rds}{%
-\section{Formato RDS}\label{formato-rds}}
+\section{Formato RDS}\label{formato-rds}
 
 El formato RDS es específico de R y se usa para almacenar objetos R de manera directa. Para cargar archivos \texttt{.rds}, se usa \texttt{readRDS()}:
 
-\hypertarget{formato-spss}{%
-\section{Formato SPSS}\label{formato-spss}}
+\section{Formato SPSS}\label{formato-spss}
 
 Para cargar archivos SPSS (\texttt{.sav}), R usa el paquete \texttt{haven}. La función \texttt{read\_sav()} permite importar estos archivos de manera directa, manteniendo las etiquetas de los valores si están disponibles:
 

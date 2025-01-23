@@ -36,7 +36,8 @@ tamaño-de-la-muestra
 rango-de-valores
 creación-de-una-base-de-datos-en-r
 simulación-de-variables-correlacionadas
-paso-1-configuración-inicial
+organizar-y-exportar-base-de-datos
+libro-de-código
 exportar-datos
 carga-datos
 formato-csv
